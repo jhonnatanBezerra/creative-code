@@ -57,9 +57,9 @@ function App() {
 
       </Aside>
 
-      <div style={{ background: 'red', height: 'calc(100vh - 60px)', paddingTop: '60px', paddingLeft: '186px' }}>
+      <MainContainer>
         <h1 style={{ fontSize: '34px', lineHeight: '51px', fontWeight: '400', font: 'Poppins' }}>Meu perfil</h1>
-      </div>
+      </MainContainer>
 
 
     </div>
@@ -207,5 +207,14 @@ export const IconContainer = styled.div`
     box-shadow: 5px 5px 19px rgba(0, 0, 0, 0.12);
     height: 30px;
   }
+
+`
+
+export const MainContainer = styled.div`
+  
+  height: calc(100vh - 60px);
+  padding-top: 60px;
+  padding-left: 186px;
+  padding-right: 116px
 
 `
