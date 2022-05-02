@@ -1,7 +1,7 @@
 import Logo from '../src/assets/image/Logo.svg';
 import Play from '../src/assets/image/Play.svg';
 import TheMembers from '../src/assets/image/TheMembers.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import "uikit/dist/css/uikit.min.css";
 import "uikit/dist/js/uikit.min.js";
 import './styles.css'
@@ -10,6 +10,7 @@ import { AiOutlineLeft } from 'react-icons/ai'
 import { FiGrid, FiUsers } from 'react-icons/fi'
 import { BiCopy } from 'react-icons/bi'
 import { BsMegaphone, BsBarChartLine } from 'react-icons/bs'
+import { Input, InputRadious } from './components/Inputs/'
 
 
 function App() {
@@ -58,7 +59,33 @@ function App() {
       </Aside>
 
       <MainContainer>
-        <h1 style={{ fontSize: '34px', lineHeight: '51px', fontWeight: '400', font: 'Poppins' }}>Meu perfil</h1>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <h1 style={{ fontSize: '34px', lineHeight: '51px', fontWeight: '400', font: 'Poppins' }}>Meu perfil</h1>
+          <PrimaryButton color='#f6f6f6'>Voltar</PrimaryButton>
+        </div>
+
+        <strong>Conteudo > Cursos > Meu perfil</strong>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '18px', paddingTop: `41px` }}>
+          <PrimaryButton>Dados pessoais</PrimaryButton>
+          <PrimaryButton>Dados financeiros</PrimaryButton>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <Input label='Nome completo' />
+          <Input label='E-mail' />
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '18px', paddingTop: `41px` }}>
+
+          <InputRadious groupBy="teste1" placeholder="Sou pessoa física" />
+
+          <InputRadious groupBy="teste1" placeholder="Sou pessoa juridica" />
+
+
+        </div>
+
+
       </MainContainer>
 
 
@@ -67,6 +94,8 @@ function App() {
 }
 
 export default App;
+
+
 
 const Table = () => (
 
@@ -155,7 +184,7 @@ export const Header = styled.header`
 
 export const Aside = styled.aside`
 
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
   background: #F7FAFC;
   width: 70px;
   box-shadow: 5px 5px 19px rgba(0, 0, 0, 0.12);
@@ -179,8 +208,7 @@ export const Aside = styled.aside`
     color: #000;
   }
 
-
-
+  
 
 `
 
@@ -190,15 +218,11 @@ export const IconContainer = styled.div`
   justify-content: center;
   position: relative;
 
-  &:hover span{
-    left: 50px; 
-    opacity: 1;
-    transition: opacity 0.1s ease-in-out;; 
-  }
+
 
   span{
     padding: 0 10px;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     position: absolute;
     background: #F7FAFC;
     font-size: 18px;
@@ -208,13 +232,30 @@ export const IconContainer = styled.div`
     height: 30px;
   }
 
+  &:hover span{
+    left: 50px; 
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;; 
+  }
+
 `
 
 export const MainContainer = styled.div`
-  
-  height: calc(100vh - 60px);
   padding-top: 60px;
   padding-left: 186px;
   padding-right: 116px
+
+`
+
+export const PrimaryButton = styled.button`
+ height: 50px;
+ width: 164px;
+ border-radius: 10px;
+ background: ${props => props.color};
+ border: 1px solid rgba(0, 0, 0, 0.2);
+ font-size: 16px;
+ text-align: center;
+ color: rgba(0, 0, 0, 0.3);
+ cursor: pointer;
 
 `
